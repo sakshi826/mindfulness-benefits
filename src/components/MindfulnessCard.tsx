@@ -1,5 +1,7 @@
 import { Heart, Moon, Brain, Smile, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getUserId } from "../lib/auth";
+import { saveMindfulnessSession } from "../lib/db";
 
 const benefits = [
   {
@@ -33,6 +35,23 @@ const benefits = [
 ];
 
 const MindfulnessCard = () => {
+  const handleGotIt = async () => {
+    const userId = getUserId();
+    if (userId) {
+      try {
+        await saveMindfulnessSession(userId, {
+          logged_at: new Date().toISOString(),
+          activity_type: 'meditation',
+          duration_min: 5,
+          guided: false,
+          benefits_noted: benefits.map(b => b.title)
+        });
+      } catch (error) {
+        console.error("Failed to save mindfulness session:", error);
+      }
+    }
+  };
+
   return (
     <div className="flex min-h-[80vh] items-center justify-center px-4 py-12">
       <div className="w-full max-w-sm space-y-6">
@@ -82,7 +101,7 @@ const MindfulnessCard = () => {
           <Button variant="ghost" className="rounded-full flex-1" size="lg">
             Skip
           </Button>
-          <Button className="rounded-full flex-1 gap-2" size="lg">
+          <Button className="rounded-full flex-1 gap-2" size="lg" onClick={handleGotIt}>
             Got It <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
