@@ -1,7 +1,7 @@
 ﻿import { Heart, Moon, Brain, Smile, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getUserId } from "../lib/auth";
-import { saveMindfulnessSession } from "../lib/db";
+
+
 import { useState } from "react";
 
 const benefits = [
@@ -42,21 +42,8 @@ const benefits = [
 const MindfulnessCard = () => {
   const [isLogged, setIsLogged] = useState(false);
 
-  const handleGotIt = async () => {
-    const userId = getUserId();
-    if (userId) {
-      try {
-        await saveMindfulnessSession(userId, {
-          logged_at: new Date().toISOString(),
-        });
-        setIsLogged(true);
-      } catch (error) {
-        console.error("Failed to save session:", error);
-        setIsLogged(true);
-      }
-    } else {
-      setIsLogged(true);
-    }
+    const handleGotIt = () => {
+    setIsLogged(true);
   };
 
   if (isLogged) {
