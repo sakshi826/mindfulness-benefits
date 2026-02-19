@@ -1,4 +1,4 @@
-import { Heart, Moon, Brain, Smile, ArrowRight } from "lucide-react";
+﻿import { Heart, Moon, Brain, Smile, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getUserId } from "../lib/auth";
 import { saveMindfulnessSession } from "../lib/db";
@@ -80,7 +80,7 @@ const MindfulnessCard = () => {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        {benefits.map((benefit, index) => (
+        {benefits?.map((benefit, index) => (
           <div
             key={benefit.title}
             className="group relative flex items-start gap-4 rounded-2xl border border-border bg-card p-6 transition-all hover:bg-muted/50 hover:shadow-lg animate-fade-in-up"
