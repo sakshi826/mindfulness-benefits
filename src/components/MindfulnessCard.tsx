@@ -63,8 +63,8 @@ const MindfulnessCard = () => {
     return (
       <div className="flex flex-col items-center justify-center p-12 text-center space-y-8 animate-in fade-in zoom-in duration-500 min-h-[400px]">
         <div className="w-24 h-24 rounded-full bg-success/20 flex items-center justify-center text-success relative">
-          <Check className="w-12 h-12 stroke-[3]" />
-          <div className="absolute inset-0 rounded-full border-4 border-success/30 animate-ping opacity-20" />
+          <Check className="w-12 h-12 stroke-[3]"/>
+          <div className="absolute inset-0 rounded-full border-4 border-success/30 animate-ping opacity-20"/>
         </div>
         <div className="space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">Mindfulness Logged</h2>

@@ -1,4 +1,4 @@
-import MindfulnessCard from "@/components/MindfulnessCard";
+﻿import MindfulnessCard from "@/components/MindfulnessCard";
 
 const Index = () => {
   return <MindfulnessCard />;
